@@ -13,7 +13,7 @@ reviewing academic papers (position papers, preprints, journal-style articles
 for SSRN / arXiv / Zenodo / journal venues). The academic counterpart to
 [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem)
 (human-facing) and
-[claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer)
+[llms-txt-writer](https://github.com/shimo4228/llms-txt-writer)
 (AI-facing).
 
 ### First repo to bundle skills + agents together

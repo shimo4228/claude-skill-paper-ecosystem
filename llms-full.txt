@@ -11,7 +11,7 @@
 - **Version**: 0.1.0 (initial public release, 2026-06-08)
 - **Runtime deps**: none (documentation-only skills)
 - **Research line**: component of the Authorship Strategy line (concept DOI 10.5281/zenodo.20263316)
-- **Counterparts**: claude-skill-writing-ecosystem (human-facing), claude-skill-llms-txt-writer (AI-facing)
+- **Counterparts**: claude-skill-writing-ecosystem (human-facing), llms-txt-writer (AI-facing)
 - **Compatibility**: Designed for Claude Code (subagents are Claude-Code-specific; the SKILL.md format itself is the open Agent Skills standard)
 
 ## What is claude-skill-paper-ecosystem?
@@ -32,7 +32,7 @@ First, draft with `paper-writing`: establish the primary-source list, then draft
 
 ## When should this bundle NOT be used?
 
-Not for human-facing blog posts, essays, or newsletters — use claude-skill-writing-ecosystem. Not for AI-facing documents such as llms.txt, FAQ, or glossary — use claude-skill-llms-txt-writer. Not for human-facing READMEs — use claude-skill-readme-writer.
+Not for human-facing blog posts, essays, or newsletters — use claude-skill-writing-ecosystem. Not for AI-facing documents such as llms.txt, FAQ, or glossary — use llms-txt-writer. Not for human-facing READMEs — use readme-writer.
 
 ## What are the canonical rules the orchestrator holds?
 
@@ -41,5 +41,5 @@ The `paper-ecosystem` skill is the single source of truth for five rule sets tha
 ## Sibling skills
 
 - claude-skill-writing-ecosystem: human-facing writing & review — also bundles its agents (editor, essay-reviewer, fact-checker)
-- claude-skill-llms-txt-writer: AI-facing documents (llms.txt / llms-full.txt / FAQ / glossary)
-- claude-skill-readme-writer: human-facing READMEs
+- llms-txt-writer: AI-facing documents (llms.txt / llms-full.txt / FAQ / glossary)
+- readme-writer: human-facing READMEs

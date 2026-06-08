@@ -1,6 +1,6 @@
 # claude-skill-paper-ecosystem
 
-An [Agent Skill](https://agentskills.io/specification) bundle for **writing and reviewing academic papers** — position papers, preprints, and journal-style articles aimed at SSRN / arXiv / Zenodo / journal venues. It is the academic counterpart to [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem) (human-facing blog/essay) and [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer) (AI-facing docs).
+An [Agent Skill](https://agentskills.io/specification) bundle for **writing and reviewing academic papers** — position papers, preprints, and journal-style articles aimed at SSRN / arXiv / Zenodo / journal venues. It is the academic counterpart to [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem) (human-facing blog/essay) and [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer) (AI-facing docs).
 
 Unlike a single-skill repo, this bundles an **orchestrator skill + a draft skill + five reviewer subagents** so the whole write→review loop installs as one unit.
 
@@ -64,7 +64,7 @@ These skills are documentation-only; no `uv sync` step is required.
 
 **Do not use for:**
 - Human-facing blog posts / essays / newsletters → [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem)
-- AI-facing docs (`llms.txt` / FAQ / glossary) → [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer)
+- AI-facing docs (`llms.txt` / FAQ / glossary) → [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer)
 
 ## Requirements
 
@@ -74,8 +74,8 @@ These skills are documentation-only; no `uv sync` step is required.
 ## Related skills (siblings)
 
 - [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem) — human-facing writing & review (also bundles its agents)
-- [`claude-skill-llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer) — AI-facing documents
-- [`claude-skill-readme-writer`](https://github.com/shimo4228/claude-skill-readme-writer) — human-facing READMEs
+- [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer) — AI-facing documents
+- [`readme-writer`](https://github.com/shimo4228/readme-writer) — human-facing READMEs
 
 ## About this skill
 
@@ -91,7 +91,7 @@ MIT
 
 ## 日本語
 
-学術論文（position paper / preprint / journal 向け）を**書く・レビューする**ための Agent Skill バンドルです。人間向け blog/essay の [`writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem)、AI 向け doc の [`llms-txt-writer`](https://github.com/shimo4228/claude-skill-llms-txt-writer) に対する**学術版**にあたります。
+学術論文（position paper / preprint / journal 向け）を**書く・レビューする**ための Agent Skill バンドルです。人間向け blog/essay の [`writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem)、AI 向け doc の [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer) に対する**学術版**にあたります。
 
 単一スキルの repo と違い、**orchestrator skill + draft skill + 5 つの reviewer subagent** を一括同梱し、write→review ループ全体が 1 単位で入ります。
 

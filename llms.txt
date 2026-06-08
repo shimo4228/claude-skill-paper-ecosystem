@@ -1,6 +1,6 @@
 # claude-skill-paper-ecosystem
 
-> A Claude Code Agent Skill bundle (MIT, v0.1.0) for writing and reviewing academic papers — position papers, preprints, and journal-style articles for SSRN / arXiv / Zenodo / journal venues. Bundles an orchestrator skill (`paper-ecosystem`), a draft skill (`paper-writing`), and five reviewer subagents that must be installed together. The academic counterpart to claude-skill-writing-ecosystem (human-facing) and claude-skill-llms-txt-writer (AI-facing).
+> A Claude Code Agent Skill bundle (MIT, v0.1.0) for writing and reviewing academic papers — position papers, preprints, and journal-style articles for SSRN / arXiv / Zenodo / journal venues. Bundles an orchestrator skill (`paper-ecosystem`), a draft skill (`paper-writing`), and five reviewer subagents that must be installed together. The academic counterpart to claude-skill-writing-ecosystem (human-facing) and llms-txt-writer (AI-facing).
 
 ## Core documentation
 
@@ -30,5 +30,5 @@
 ## Sibling skills
 
 - [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing & review (also bundles its agents)
-- [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer): AI-facing documents
-- [claude-skill-readme-writer](https://github.com/shimo4228/claude-skill-readme-writer): human-facing READMEs
+- [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): AI-facing documents
+- [readme-writer](https://github.com/shimo4228/readme-writer): human-facing READMEs
