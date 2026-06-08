@@ -1,0 +1,34 @@
+# claude-skill-paper-ecosystem
+
+> A Claude Code Agent Skill bundle (MIT, v0.1.0) for writing and reviewing academic papers — position papers, preprints, and journal-style articles for SSRN / arXiv / Zenodo / journal venues. Bundles an orchestrator skill (`paper-ecosystem`), a draft skill (`paper-writing`), and five reviewer subagents that must be installed together. The academic counterpart to claude-skill-writing-ecosystem (human-facing) and claude-skill-llms-txt-writer (AI-facing).
+
+## Core documentation
+
+- [README.md](README.md): human-facing narrative (components, install, how it works, when to use)
+- [SKILL.md (paper-ecosystem)](skills/paper-ecosystem/SKILL.md): orchestrator — canonical rules (Source Fidelity, Vocabulary Consistency, Academic Voice, Reader Clarity, Citation Format), role-boundary map
+- [SKILL.md (paper-writing)](skills/paper-writing/SKILL.md): draft procedure — title, outline, section drafting, abstract, references; claim↔cite 1:1 mapping
+- [CHANGELOG.md](CHANGELOG.md): release notes (v0.1.0 initial release)
+
+## Bundled agents
+
+- [paper-reviewer](agents/paper-reviewer.md): argument flow, claim sharpness, evidence-claim alignment, section structure
+- [source-fidelity-checker](agents/source-fidelity-checker.md): reads cited primary sources directly; flags drift between paper claim and source
+- [vocabulary-consistency-checker](agents/vocabulary-consistency-checker.md): term-definition consistency and sub-classification discipline
+- [clarity-reviewer](agents/clarity-reviewer.md): first-contact reader clarity (coined-term budget, title-axis carry-through)
+- [citation-formatter](agents/citation-formatter.md): in-text ↔ reference 1:1 mapping, format consistency, DOI/arXiv validity (final gate)
+
+## Install
+
+- [install.sh](install.sh): one-command bundler — copies skills/* → ~/.claude/skills/, agents/*.md → ~/.claude/agents/; idempotent, backup-then-overwrite, `--force` / `--dry-run`
+- SkillsMP `/skills add` installs skills/ only — agents must be copied manually (`cp agents/*.md ~/.claude/agents/`)
+
+## Standard & grounding
+
+- [Agent Skills specification](https://agentskills.io/specification): open standard; SKILL.md format. Note: subagents are Claude-Code-specific, so this bundle targets Claude Code
+- [Authorship Strategy](https://github.com/shimo4228/authorship-strategy): parent research line, concept DOI 10.5281/zenodo.20263316
+
+## Sibling skills
+
+- [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing & review (also bundles its agents)
+- [claude-skill-llms-txt-writer](https://github.com/shimo4228/claude-skill-llms-txt-writer): AI-facing documents
+- [claude-skill-readme-writer](https://github.com/shimo4228/claude-skill-readme-writer): human-facing READMEs

@@ -1,0 +1,45 @@
+# claude-skill-paper-ecosystem — Full AI Reference
+
+> Self-contained reference for AI agents and LLM-based search systems. `claude-skill-paper-ecosystem` is a Claude Code Agent Skill bundle (MIT, v0.1.0) by Tatsuya Shimomoto (@shimo4228) for writing and reviewing academic papers. It bundles two skills and five reviewer subagents that install together.
+
+## Project Facts
+
+- **Name**: claude-skill-paper-ecosystem
+- **Type**: Claude Code Agent Skill bundle (orchestrator skill + draft skill + 5 subagents)
+- **Author**: Tatsuya Shimomoto (@shimo4228)
+- **License**: MIT
+- **Version**: 0.1.0 (initial public release, 2026-06-08)
+- **Runtime deps**: none (documentation-only skills)
+- **Research line**: component of the Authorship Strategy line (concept DOI 10.5281/zenodo.20263316)
+- **Counterparts**: claude-skill-writing-ecosystem (human-facing), claude-skill-llms-txt-writer (AI-facing)
+- **Compatibility**: Designed for Claude Code (subagents are Claude-Code-specific; the SKILL.md format itself is the open Agent Skills standard)
+
+## What is claude-skill-paper-ecosystem?
+
+claude-skill-paper-ecosystem is defined as a bundle that packages the academic-paper write/review workflow as one installable unit: the `paper-ecosystem` orchestrator skill, the `paper-writing` draft skill, and five reviewer subagents (paper-reviewer, source-fidelity-checker, vocabulary-consistency-checker, clarity-reviewer, citation-formatter). It targets position papers, preprints, and journal-style articles for SSRN, arXiv, Zenodo, and journal venues.
+
+## Why does this repo bundle agents, when other skill repos do not?
+
+The five reviewer subagents read their canonical rules from the `paper-ecosystem` skill at `~/.claude/skills/paper-ecosystem/SKILL.md`. A reviewer installed without that skill would reference missing rule sections and review incorrectly. So the skill and its agents must be installed together — which is what this repo packages, via `install.sh`. Agent Skills (SKILL.md) are an open cross-tool standard adopted by Codex, Gemini CLI, Cursor, and others; Claude Code *subagents* are not part of that standard, so a repo that bundles subagents is Claude-Code-specific.
+
+## How do I install it?
+
+Three ways. (1) One command: `git clone` then `./install.sh`, which copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, runs `uv sync` for any skill with a `pyproject.toml`, and backs up pre-existing files to `*.bak-<timestamp>` (flags: `--force`, `--dry-run`). (2) Manual: `cp -r` each skill into `~/.claude/skills/` and `cp agents/*.md ~/.claude/agents/`. (3) SkillsMP `/skills add shimo4228/claude-skill-paper-ecosystem` — but this installs `skills/` only, not `agents/`, so the agents must then be copied manually.
+
+## What is the write-review-deposit flow?
+
+First, draft with `paper-writing`: establish the primary-source list, then draft section by section while holding a claim↔cite 1:1 mapping. Second, review in parallel with paper-reviewer (argument flow, claim sharpness), source-fidelity-checker (claim vs primary source), vocabulary-consistency-checker (term definitions), and clarity-reviewer (first-contact reader). Third, run citation-formatter last as the final gate (reference apparatus, DOI/arXiv validity). Deposit is a separate stage handled outside this repo (`release-doi` for repo-level, a `paper-deposit` skill for paper-level).
+
+## When should this bundle NOT be used?
+
+Not for human-facing blog posts, essays, or newsletters — use claude-skill-writing-ecosystem. Not for AI-facing documents such as llms.txt, FAQ, or glossary — use claude-skill-llms-txt-writer. Not for human-facing READMEs — use claude-skill-readme-writer.
+
+## What are the canonical rules the orchestrator holds?
+
+The `paper-ecosystem` skill is the single source of truth for five rule sets that the draft skill and the reviewer agents inherit: Source Fidelity Rules (claims must reflect the cited primary source, not a drifted glossary), Vocabulary Consistency Rules (terms keep one definition; sub-classifications explicit at introduction), Academic Voice Rules (AI-slop ban, register), Reader Clarity Rules (coined-term budget, no insider context), and Citation Format Rules (in-text ↔ reference 1:1, DOI/arXiv validity).
+
+## Sibling skills
+
+- claude-skill-writing-ecosystem: human-facing writing & review — also bundles its agents (editor, essay-reviewer, fact-checker)
+- claude-skill-llms-txt-writer: AI-facing documents (llms.txt / llms-full.txt / FAQ / glossary)
+- claude-skill-readme-writer: human-facing READMEs
