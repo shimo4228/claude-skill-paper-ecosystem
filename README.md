@@ -1,5 +1,7 @@
 # claude-skill-paper-ecosystem
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shimo4228/claude-skill-paper-ecosystem)
+
 An [Agent Skill](https://agentskills.io/specification) bundle for **writing and reviewing academic papers** — position papers, preprints, and journal-style articles aimed at SSRN / arXiv / Zenodo / journal venues. It is the academic counterpart to [`claude-skill-writing-ecosystem`](https://github.com/shimo4228/claude-skill-writing-ecosystem) (human-facing blog/essay) and [`llms-txt-writer`](https://github.com/shimo4228/llms-txt-writer) (AI-facing docs).
 
 Unlike a single-skill repo, this bundles an **orchestrator skill + a draft skill + five reviewer subagents** so the whole write→review loop installs as one unit.
