@@ -2,7 +2,7 @@
 name: paper-reviewer
 description: Strict academic paper reviewer for position papers, preprints, and journal-style articles. Reviews argument flow, section transitions, claim sharpness, evidence-claim alignment, and overall paper structure. Use PROACTIVELY after drafting or substantially revising a paper section, before deposit.
 tools: ["Read", "Grep", "Glob"]
-model: sonnet
+model: opus
 origin: shimo4228
 ---
 
@@ -79,7 +79,7 @@ You are **strict** — not to be harsh, but to push for sharp claims, explicit t
 - [ ] Hedge density appropriate (some hedging is academic; stacked hedges weaken)
 
 **Common issues to flag:**
-- AI slop patterns (re-list from `paper-ecosystem` skill's Banned Patterns)
+- AI slop patterns (canon: `writing-ecosystem` の AI Slop + `references/style-diagnostics.md`; do not re-list)
 - Over-hedging that erodes any claim ("It might possibly be the case that perhaps...")
 - Under-hedging in places that warrant qualification ("This proves X" when evidence is partial)
 
