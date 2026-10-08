@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Fixed
+- `install.sh`: a replaced skill or agent is backed up to `~/.claude/backups/install-<timestamp>/`
+  instead of beside the original as `*.bak-<timestamp>`. A backed-up skill folder left inside
+  `~/.claude/skills/` still held its SKILL.md and could load as a second skill of the same name.
+- `install.sh`: reinstalling an unchanged repo no longer backs everything up. The comparison ignores
+  what `uv sync` and test runs create in an installed skill (`.venv`, `__pycache__`,
+  `.pytest_cache`, `.ruff_cache`).
+
 ## [0.1.0] — 2026-06-08
 
 Initial public release.

@@ -30,7 +30,7 @@ cd claude-skill-paper-ecosystem
 ./install.sh
 ```
 
-Copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, and runs `uv sync` for any skill that declares Python dependencies. Existing files are backed up to `*.bak-<timestamp>` before being replaced (use `--force` to skip backups, `--dry-run` to preview).
+Copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, and runs `uv sync` for any skill that declares Python dependencies. Existing files that differ are moved to `~/.claude/backups/install-<timestamp>/` before being replaced (use `--force` to skip backups, `--dry-run` to preview).
 
 ### Option B — manual (full control)
 

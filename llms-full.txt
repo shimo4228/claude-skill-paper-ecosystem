@@ -24,7 +24,7 @@ The five reviewer subagents read their canonical rules from the `paper-ecosystem
 
 ## How do I install it?
 
-Three ways. (1) One command: `git clone` then `./install.sh`, which copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, runs `uv sync` for any skill with a `pyproject.toml`, and backs up pre-existing files to `*.bak-<timestamp>` (flags: `--force`, `--dry-run`). (2) Manual: `cp -r` each skill into `~/.claude/skills/` and `cp agents/*.md ~/.claude/agents/`. (3) SkillsMP `/skills add shimo4228/claude-skill-paper-ecosystem` — but this installs `skills/` only, not `agents/`, so the agents must then be copied manually.
+Three ways. (1) One command: `git clone` then `./install.sh`, which copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, runs `uv sync` for any skill with a `pyproject.toml`, and backs up pre-existing files to `~/.claude/backups/install-<timestamp>/` (flags: `--force`, `--dry-run`). (2) Manual: `cp -r` each skill into `~/.claude/skills/` and `cp agents/*.md ~/.claude/agents/`. (3) SkillsMP `/skills add shimo4228/claude-skill-paper-ecosystem` — but this installs `skills/` only, not `agents/`, so the agents must then be copied manually.
 
 ## What is the write-review-deposit flow?
 
