@@ -10,9 +10,12 @@
 - **License**: MIT
 - **Version**: 0.1.0 (initial public release, 2026-06-08)
 - **Runtime deps**: none (documentation-only skills)
-- **Research line**: component of the Authorship Strategy line (concept DOI 10.5281/zenodo.20263316)
+- **Status**: active; `skills/` and `agents/` are copied one way from the author's paper workspace (`scripts/sync-from-local.sh`, maintainer-only), so this copy can trail it between syncs
+- **Parent project**: serves the papers of the Authorship Strategy project (concept DOI 10.5281/zenodo.20263316); the bundle itself has no DOI. Author hub: https://github.com/shimo4228/shimo4228
 - **Counterparts**: claude-skill-writing-ecosystem (human-facing), llms-txt-writer (AI-facing)
 - **Compatibility**: Designed for Claude Code (subagents are Claude-Code-specific; the SKILL.md format itself is the open Agent Skills standard)
+- **Models**: `opus` for paper-reviewer and source-fidelity-checker, `sonnet` for the other three agents
+- **Language**: the two SKILL.md files are written in Japanese with English technical terms; the agent definitions are mostly English
 
 ## What is claude-skill-paper-ecosystem?
 
@@ -24,11 +27,11 @@ The five reviewer subagents read their canonical rules from the `paper-ecosystem
 
 ## How do I install it?
 
-Three ways. (1) One command: `git clone` then `./install.sh`, which copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, runs `uv sync` for any skill with a `pyproject.toml`, and backs up pre-existing files to `~/.claude/backups/install-<timestamp>/` (flags: `--force`, `--dry-run`). (2) Manual: `cp -r` each skill into `~/.claude/skills/` and `cp agents/*.md ~/.claude/agents/`. (3) SkillsMP `/skills add shimo4228/claude-skill-paper-ecosystem` — but this installs `skills/` only, not `agents/`, so the agents must then be copied manually.
+Three ways. (1) One command: `git clone` then `./install.sh`, which copies every `skills/*` into `~/.claude/skills/`, every `agents/*.md` into `~/.claude/agents/`, runs `uv sync` for any skill with a `pyproject.toml`, and moves a pre-existing skill folder or agent file that differs to `~/.claude/backups/install-<timestamp>/` before copying (flags: `--force` skips backups, `--dry-run` shows what would change). (2) Manual: `cp -r` each skill into `~/.claude/skills/` and `cp agents/*.md ~/.claude/agents/`. (3) SkillsMP `/skills add shimo4228/claude-skill-paper-ecosystem` — but this installs `skills/` only, not `agents/`, so the agents must then be copied manually.
 
 ## What is the write-review-deposit flow?
 
-First, draft with `paper-writing`: establish the primary-source list, then draft section by section while holding a claim↔cite 1:1 mapping. Second, review in parallel with paper-reviewer (argument flow, claim sharpness), source-fidelity-checker (claim vs primary source), vocabulary-consistency-checker (term definitions), and clarity-reviewer (first-contact reader). Third, run citation-formatter last as the final gate (reference apparatus, DOI/arXiv validity). Deposit is a separate stage handled outside this repo (`release-doi` for repo-level, a `paper-deposit` skill for paper-level).
+First, draft with `paper-writing`: establish the primary-source list, then draft section by section while holding a claim↔cite 1:1 mapping. Second, review in parallel with paper-reviewer (argument flow, claim sharpness, missing or misaligned cite pointers), source-fidelity-checker (claim vs primary source), vocabulary-consistency-checker (term definitions), and clarity-reviewer (first-contact reader). Third, run citation-formatter last as the final gate (reference apparatus, DOI/arXiv validity). Deposit is a separate stage handled outside this repo (`release-doi` for repo-level Zenodo deposits; `paper-writing` hands paper-level deposits to a `paper-deposit` skill that this repo does not include). The reviewers only report; none of them edits the paper.
 
 ## When should this bundle NOT be used?
 
@@ -40,6 +43,8 @@ The `paper-ecosystem` skill is the single source of truth for five rule sets tha
 
 ## Sibling skills
 
-- claude-skill-writing-ecosystem: human-facing writing & review — also bundles its agents (editor, essay-reviewer, fact-checker)
+- claude-skill-writing-ecosystem: human-facing writing & review — also bundles its six review agents
 - llms-txt-writer: AI-facing documents (llms.txt / llms-full.txt / FAQ / glossary)
 - readme-writer: human-facing READMEs
+- release-doi: repo-level Zenodo deposit (https://github.com/shimo4228/release-doi)
+- Author hub (five practice lines, their DOIs, and the author's tools): https://github.com/shimo4228/shimo4228

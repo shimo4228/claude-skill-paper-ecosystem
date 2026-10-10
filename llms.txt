@@ -2,6 +2,8 @@
 
 > A Claude Code Agent Skill bundle (MIT, v0.1.0) for writing and reviewing academic papers — position papers, preprints, and journal-style articles for SSRN / arXiv / Zenodo / journal venues. Bundles an orchestrator skill (`paper-ecosystem`), a draft skill (`paper-writing`), and five reviewer subagents that must be installed together. The academic counterpart to claude-skill-writing-ecosystem (human-facing) and llms-txt-writer (AI-facing).
 
+Status: active; `skills/` and `agents/` are copied one way from the author's paper workspace (via `scripts/sync-from-local.sh`), so this copy can trail it between syncs.
+
 ## Core documentation
 
 - [README.md](README.md): human-facing narrative (components, install, how it works, when to use)
@@ -11,7 +13,7 @@
 
 ## Bundled agents
 
-- [paper-reviewer](agents/paper-reviewer.md): argument flow, claim sharpness, evidence-claim alignment, section structure
+- [paper-reviewer](agents/paper-reviewer.md): argument flow, claim sharpness, section structure, academic voice; flags missing or misaligned cite pointers (whether the source supports the claim is left to source-fidelity-checker)
 - [source-fidelity-checker](agents/source-fidelity-checker.md): reads cited primary sources directly; flags drift between paper claim and source
 - [vocabulary-consistency-checker](agents/vocabulary-consistency-checker.md): term-definition consistency and sub-classification discipline
 - [clarity-reviewer](agents/clarity-reviewer.md): first-contact reader clarity (coined-term budget, title-axis carry-through)
@@ -25,10 +27,12 @@
 ## Standard & grounding
 
 - [Agent Skills specification](https://agentskills.io/specification): open standard; SKILL.md format. Note: subagents are Claude-Code-specific, so this bundle targets Claude Code
-- [Authorship Strategy](https://github.com/shimo4228/authorship-strategy): parent research line, concept DOI 10.5281/zenodo.20263316
+- [Authorship Strategy](https://github.com/shimo4228/authorship-strategy): parent project whose papers this bundle serves, concept DOI 10.5281/zenodo.20263316 (the bundle itself has no DOI)
 
 ## Sibling skills
 
-- [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing & review (also bundles its agents)
+- [claude-skill-writing-ecosystem](https://github.com/shimo4228/claude-skill-writing-ecosystem): human-facing writing & review (also bundles its six review agents)
 - [llms-txt-writer](https://github.com/shimo4228/llms-txt-writer): AI-facing documents
 - [readme-writer](https://github.com/shimo4228/readme-writer): human-facing READMEs
+- [release-doi](https://github.com/shimo4228/release-doi): repo-level Zenodo deposit, the step after the paper
+- [shimo4228](https://github.com/shimo4228/shimo4228): the author's hub — the five practice lines, their DOIs, and the author's tools for Claude Code
